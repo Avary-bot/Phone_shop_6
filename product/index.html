@@ -846,65 +846,59 @@
     let activeCategory = "all";
     let selectedId = null;
 
+    
+
     function renderProducts() {
-      const q = document.getElementById("search").value.toLowerCase().trim();
-      const products = getProducts().filter(p => {
-        const categoryOk = activeCategory === "all" || p.category === activeCategory;
-        const searchOk = !q || [p.name, p.category, p.description].join(" ").toLowerCase().includes(q);
+    const q = document.getElementById("search").value.toLowerCase().trim();
+
+    const products = getProducts().filter(p => {
+        const categoryOk =
+            activeCategory === "all" ||
+            String(p.category).trim().toLowerCase() === activeCategory.trim().toLowerCase();
+
+        const searchOk =
+            !q ||
+            [p.name, p.category, p.description]
+                .join(" ")
+                .toLowerCase()
+                .includes(q);
+
         return categoryOk && searchOk;
-      });
+    });
 
-      document.getElementById("products").innerHTML = products.length ? products.map(p => `
-    <article class="product">
-      <div class="photo"><img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}"><span class="tag">${escapeHTML(p.category)}</span></div>
-      <div class="info">
-        <h3>${escapeHTML(p.name)}</h3>
-        <div class="desc">${escapeHTML(p.description)}</div>
-        <div class="rating">${stars(productRating(p))} <span>(${(p.reviews || []).length})</span></div>
-        <div class="row"><div class="price">$${Number(p.price).toFixed(2)}</div><button class="add" onclick="add(${p.id})"><i class="fa-solid fa-cart-plus"></i></button></div>
-        <button class="view" onclick="openDetail(${p.id})">View Product</button>
-      </div>
-    </article>
-  `).join("") : `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)">No products found.</div>`;
-    }
+    document.getElementById("products").innerHTML = products.length
+        ? products.map(p => `
+            <article class="product">
+                <div class="photo">
+                    <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">
+                    <span class="tag">${escapeHTML(p.category)}</span>
+                </div>
 
-    function add(id) {
-      const r = addToCart(id);
-      showToast(r.message, r.ok ? "success" : "error");
-      renderCart();
-    }
+                <div class="info">
+                    <h3>${escapeHTML(p.name)}</h3>
+                    <div class="desc">${escapeHTML(p.description)}</div>
+                    <div class="rating">
+                        ${stars(productRating(p))}
+                        <span>(${(p.reviews || []).length})</span>
+                    </div>
 
-    function openDetail(id) {
-      selectedId = Number(id);
-      const p = getProducts().find(x => x.id === selectedId);
-      if (!p) return;
+                    <div class="row">
+                        <div class="price">$${Number(p.price).toFixed(2)}</div>
+                        <button class="add" onclick="add(${p.id})">
+                            <i class="fa-solid fa-cart-plus"></i>
+                        </button>
+                    </div>
 
-      const reviews = (p.reviews || []).map(r => `
-    <div class="review"><b>${escapeHTML(r.user)}</b><div class="stars">${stars(r.rating)}</div><div>${escapeHTML(r.comment)}</div></div>
-  `).join("") || `<p style="color:var(--muted)">No reviews yet.</p>`;
-
-      document.getElementById("detailContent").innerHTML = `
-    <div class="detail">
-      <img src="${escapeHTML(p.image)}" alt="${escapeHTML(p.name)}">
-      <div>
-        <small style="color:var(--primary);font-weight:800">${escapeHTML(p.category)}</small>
-        <h2>${escapeHTML(p.name)}</h2>
-        <div class="rating">${stars(productRating(p))} <span>${(p.reviews || []).length} reviews</span></div>
-        <div class="detail-price">$${Number(p.price).toFixed(2)}</div>
-        <p style="color:var(--muted);line-height:1.7">${escapeHTML(p.description)}</p>
-        <p><b>Stock:</b> ${p.stock}</p>
-        <button class="primary" onclick="add(${p.id});closeDetail()">Add to Cart</button>
-      </div>
-    </div>
-    <hr style="border:0;border-top:1px solid var(--line);margin:25px 0">
-    <h3>Customer Reviews</h3>${reviews}
-    <h3 style="margin-top:22px">Write a Review</h3>
-    <select class="field" id="reviewRating"><option value="5">★★★★★ Excellent</option><option value="4">★★★★☆ Very good</option><option value="3">★★★☆☆ Good</option><option value="2">★★☆☆☆ Fair</option><option value="1">★☆☆☆☆ Poor</option></select>
-    <textarea class="field" id="reviewComment" rows="3" placeholder="Write your review..."></textarea>
-    <button class="primary" onclick="submitReview()">Submit Review</button>
-  `;
-      document.getElementById("detailOverlay").classList.add("show");
-    }
+                    <button class="view" onclick="openDetail(${p.id})">
+                        View Product
+                    </button>
+                </div>
+            </article>
+        `).join("")
+        : `<div style="grid-column:1/-1;text-align:center;padding:60px;color:var(--muted)">
+            No products found.
+           </div>`;
+}
 
     function submitReview() {
       const user = getCurrentUser();
