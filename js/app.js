@@ -69,56 +69,112 @@ function escapeHTML(value) {
 
 function seedProducts() {
   const products = getProducts();
+
   if (products.length) return;
 
   saveProducts([
     {
       id: 1001,
+      name: "iPhone 15 Pro",
+      price: 899.00,
+      category: "IPhone",
+      stock: 10,
+      image:
+        "https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Powerful iPhone with a premium camera and fast performance.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1002,
+      name: "Samsung Galaxy S25 Ultra",
+      price: 1199.00,
+      category: "Samsung",
+      stock: 15,
+      image:
+        "https://images.unsplash.com/photo-1610945415295-d9bbf067e59c?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Premium Samsung smartphone with a large display and powerful camera.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1003,
+      name: "Oppo Find X8",
+      price: 799.00,
+      category: "Oppo",
+      stock: 12,
+      image:
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Modern Oppo smartphone with excellent performance and camera quality.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1004,
+      name: "Xiaomi 15",
+      price: 699.00,
+      category: "XiaoMi",
+      stock: 20,
+      image:
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Fast and affordable Xiaomi smartphone for everyday use.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1005,
+      name: "Vivo X200",
+      price: 749.00,
+      category: "Vivo",
+      stock: 18,
+      image:
+        "https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Vivo smartphone with a beautiful display and powerful camera.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1006,
+      name: "Sony Xperia 1 VI",
+      price: 999.00,
+      category: "Sony",
+      stock: 8,
+      image:
+        "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=900&q=80",
+      description:
+        "Sony Xperia smartphone with a premium display and performance.",
+      seller: "SHOPX",
+      reviews: []
+    },
+
+    {
+      id: 1007,
       name: "Wireless Headphones",
       price: 59.99,
-      category: "Electronics",
+      category: "Accessories",
       stock: 25,
       image:
         "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=900&q=80",
       description:
         "Comfortable wireless headphones with rich sound and long battery life.",
       seller: "SHOPX",
-      reviews: [
-        {
-          user: "Demo User",
-          rating: 5,
-          comment: "Great sound and comfortable.",
-        },
-      ],
+      reviews: []
     },
+
     {
-      id: 1002,
-      name: "Premium T-Shirt",
-      price: 24.5,
-      category: "Fashion",
-      stock: 40,
-      image:
-        "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=900&q=80",
-      description: "Soft premium cotton T-shirt for everyday wear.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1003,
-      name: "Running Shoes",
-      price: 79.0,
-      category: "Shoes",
-      stock: 18,
-      image:
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
-      description: "Lightweight running shoes designed for daily training.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1004,
+      id: 1008,
       name: "Smart Watch",
-      price: 129.0,
+      price: 129.00,
       category: "Accessories",
       stock: 12,
       image:
@@ -126,206 +182,22 @@ function seedProducts() {
       description:
         "Modern smartwatch for fitness, notifications and daily activity.",
       seller: "SHOPX",
-      reviews: [],
+      reviews: []
     },
-    {
-      id: 1005,
-      name: "iPhone 15 Pro",
-      price: 899.0,
-      category: "Electronics",
-      stock: 10,
-      image:
-        "https://images.unsplash.com/photo-1696446701796-da61225697cc?auto=format&fit=crop&w=900&q=80",
-      description:
-        "Powerful smartphone with a premium camera and fast performance.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1006,
-      name: "Gaming Laptop",
-      price: 1299.0,
-      category: "Electronics",
-      stock: 8,
-      image:
-        "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&w=900&q=80",
-      description:
-        "High-performance laptop for gaming, programming and creative work.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1007,
-      name: "Bluetooth Speaker",
-      price: 45.0,
-      category: "Electronics",
-      stock: 30,
-      image:
-        "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?auto=format&fit=crop&w=900&q=80",
-      description:
-        "Portable Bluetooth speaker with powerful sound and deep bass.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1008,
-      name: "Mechanical Keyboard",
-      price: 69.99,
-      category: "Electronics",
-      stock: 20,
-      image:
-        "https://images.unsplash.com/photo-1587829741301-dc798b83add3?auto=format&fit=crop&w=900&q=80",
-      description: "Responsive mechanical keyboard for gaming and programming.",
-      seller: "SHOPX",
-      reviews: [],
-    },
+
     {
       id: 1009,
-      name: "Classic Hoodie",
-      price: 39.99,
-      category: "Fashion",
-      stock: 35,
-      image:
-        "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&w=900&q=80",
-      description: "Warm and comfortable hoodie with a clean modern design.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1010,
-      name: "Denim Jacket",
-      price: 64.0,
-      category: "Fashion",
-      stock: 22,
-      image:
-        "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=900&q=80",
-      description:
-        "Classic denim jacket that works with casual everyday outfits.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1011,
-      name: "Sunglasses",
-      price: 29.99,
-      category: "Accessories",
-      stock: 50,
-      image:
-        "https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=900&q=80",
-      description: "Stylish sunglasses with a lightweight frame.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1012,
-      name: "Leather Backpack",
-      price: 89.0,
-      category: "Accessories",
-      stock: 16,
-      image:
-        "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&w=900&q=80",
-      description:
-        "Durable backpack with enough space for school, work and travel.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1013,
-      name: "Sport Sneakers",
-      price: 69.5,
-      category: "Shoes",
-      stock: 27,
-      image:
-        "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=900&q=80",
-      description: "Comfortable sneakers for walking, sports and everyday use.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1014,
-      name: "White Casual Shoes",
-      price: 54.99,
-      category: "Shoes",
-      stock: 24,
-      image:
-        "https://images.unsplash.com/photo-1495555961986-6d4c1ecb7be3?auto=format&fit=crop&w=900&q=80",
-      description: "Minimal white shoes that match almost any outfit.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1015,
       name: "USB-C Power Bank",
       price: 34.99,
       category: "Accessories",
       stock: 45,
       image:
         "https://images.unsplash.com/photo-1609592424990-6f7c0c9b9f4a?auto=format&fit=crop&w=900&q=80",
-      description: "Compact power bank with USB-C fast charging.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1016,
-      name: "Wireless Mouse",
-      price: 25.0,
-      category: "Electronics",
-      stock: 32,
-      image:
-        "https://images.unsplash.com/photo-1527814050087-3793815479db?auto=format&fit=crop&w=900&q=80",
-      description: "Smooth wireless mouse with comfortable ergonomic control.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1017,
-      name: "Tablet 11-inch",
-      price: 299.0,
-      category: "Electronics",
-      stock: 14,
-      image:
-        "https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?auto=format&fit=crop&w=900&q=80",
       description:
-        "Slim tablet for study, entertainment and everyday productivity.",
+        "Compact power bank with USB-C fast charging.",
       seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1018,
-      name: "Baseball Cap",
-      price: 18.99,
-      category: "Fashion",
-      stock: 60,
-      image:
-        "https://images.unsplash.com/photo-1521369909029-2afed882baee?auto=format&fit=crop&w=900&q=80",
-      description: "Simple adjustable cap for casual everyday style.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1019,
-      name: "Travel Watch",
-      price: 99.0,
-      category: "Accessories",
-      stock: 15,
-      image:
-        "https://images.unsplash.com/photo-1524805444758-089113d48a6d?auto=format&fit=crop&w=900&q=80",
-      description: "Elegant everyday watch with a classic design.",
-      seller: "SHOPX",
-      reviews: [],
-    },
-    {
-      id: 1020,
-      name: "Basketball Shoes",
-      price: 94.99,
-      category: "Samsung",
-      stock: 19,
-      image:
-        "https://images.unsplash.com/photo-1552346154-21d32810aba3?auto=format&fit=crop&w=900&q=80",
-      description: "Supportive sports shoes designed for quick movement.",
-      seller: "SHOPX",
-      reviews: [],
-    },
+      reviews: []
+    }
   ]);
 }
 

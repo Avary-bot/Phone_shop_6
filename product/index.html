@@ -749,16 +749,39 @@
   <section class="section">
     <div class="eyebrow">Explore</div>
     <h2>Shop by Category</h2>
-    <div class="categories">
-      <button class="cat active" data-cat="all"><i class="fa-solid fa-border-all"></i>All</button>
-      <button class="cat" data-cat="Samsung"><i class="fa-solid fa-mobile-screen"></i>IPhone</button>
-      <button class="cat" data-cat="IPhone"><i class="fa-solid fa-mobile-screen"></i>Samsung</button>
-      <button class="cat" data-cat="Oppo"><i class="fa-solid fa-mobile-screen"></i>Oppo</button>
-      <button class="cat" data-cat="XiaoMi"><i class="fa-solid fa-mobile-screen"></i>XiaoMi</button>
-      <button class="cat" data-cat="Vivo"><i class="fa-solid fa-mobile-screen"></i>Vivo</button>
-      <button class="cat" data-cat="Sony"><i class="fa-solid fa-mobile-screen"></i>Sony</button>
-      <button class="cat" data-cat="Accessories"><i class="fa-solid fa-watch"></i>Accessories</button>
-    </div>
+   <div class="categories">
+    <button class="cat active" data-cat="all">
+        <i class="fa-solid fa-border-all"></i> All
+    </button>
+
+    <button class="cat" data-cat="IPhone">
+        <i class="fa-solid fa-mobile-screen"></i> IPhone
+    </button>
+
+    <button class="cat" data-cat="Samsung">
+        <i class="fa-solid fa-mobile-screen"></i> Samsung
+    </button>
+
+    <button class="cat" data-cat="Oppo">
+        <i class="fa-solid fa-mobile-screen"></i> Oppo
+    </button>
+
+    <button class="cat" data-cat="XiaoMi">
+        <i class="fa-solid fa-mobile-screen"></i> Xiaomi
+    </button>
+
+    <button class="cat" data-cat="Vivo">
+        <i class="fa-solid fa-mobile-screen"></i> Vivo
+    </button>
+
+    <button class="cat" data-cat="Sony">
+        <i class="fa-solid fa-mobile-screen"></i> Sony
+    </button>
+
+    <button class="cat" data-cat="Accessories">
+        <i class="fa-solid fa-headphones"></i> Accessories
+    </button>
+</div>
   </section>
 
   <section class="section" id="store">
@@ -787,11 +810,16 @@
         <input class="field" id="pName" placeholder="Product name" required>
         <div class="form-row"><input class="field" id="pPrice" type="number" step="0.01" placeholder="Price"
             required><input class="field" id="pStock" type="number" placeholder="Stock" required></div>
-        <select class="field" id="pCategory">
-          <option>New</option>
-          <option>outStock</option>
-          <option>InStock</option>
-        </select>
+        <select class="field" id="pCategory" required>
+    <option value="">Select Phone Category</option>
+    <option value="IPhone">IPhone</option>
+    <option value="Samsung">Samsung</option>
+    <option value="Oppo">Oppo</option>
+    <option value="XiaoMi">Xiaomi</option>
+    <option value="Vivo">Vivo</option>
+    <option value="Sony">Sony</option>
+    <option value="Accessories">Accessories</option>
+</select>
         <input class="field" id="pImage" placeholder="Image URL" required>
         <textarea class="field" id="pDescription" placeholder="Description" rows="4" required></textarea>
         <button class="primary">Add Product</button>
